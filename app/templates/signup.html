@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+{% block css %} 
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/contact.css') }}"/>
+{% endblock%}
+{% block main %}
+<h1>Create A User Profile</h1>
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <div class="alert alert-success">
+      <ul class="flashes">
+      {% for message in messages %}
+        <li>{{ message }}</li>
+      {% endfor %}
+      </ul>
+    </div>
+  {% endif %}
+{% endwith %}
+
+
+<form class="well form-horizontal" action="{{ url_for('add_file') }}" method="post"  id="profile_form" enctype="multipart/form-data">
+<fieldset>
+
+ <!-- Text input-->   
+<div class="form-group">
+  <label class="col-md-4 control-label">First Name</label>  
+  <div class="col-md-4 inputGroupContainer">
+  <div class="input-group">
+  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+  <input required name="fName" placeholder="First Name" class="form-control"  type="text">
+    </div>
+  </div>
+</div>
+
+<!-- Text input-->   
+<div class="form-group">
+  <label class="col-md-4 control-label">Last Name</label>  
+  <div class="col-md-4 inputGroupContainer">
+  <div class="input-group">
+  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+  <input required name="lName" placeholder="Last Name" class="form-control"  type="text">
+    </div>
+  </div>
+</div>
+
+<!-- Text input-->   
+<div class="form-group">
+  <label class="col-md-4 control-label">User Name</label>  
+  <div class="col-md-4 inputGroupContainer">
+  <div class="input-group">
+  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+  <input required name="userName" placeholder="User Name" class="form-control"  type="text">
+    </div>
+  </div>
+</div>
+
+
+<!-- Text input-->   
+<div class="form-group">
+  <label class="col-md-4 control-label">Gender</label>  
+  <div class="col-md-4 inputGroupContainer">
+  <div class="input-group">
+  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+  <input required name="gender" placeholder="Gender" class="form-control"  type="text">
+    </div>
+  </div>
+</div>
+
+<!-- Text input-->   
+<div class="form-group">
+  <label class="col-md-4 control-label">Age</label>  
+  <div class="col-md-4 inputGroupContainer">
+  <div class="input-group">
+  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+  <input required name="age" placeholder="Age" class="form-control"  type="text">
+    </div>
+  </div>
+</div>
+
+<!-- Text area -->  
+<div class="form-group">
+  <label class="col-md-4 control-label">Profile Bio</label>
+    <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+        	<textarea required class="form-control" name="bio" placeholder="Enter a short profile bio here" rows="2"></textarea>
+  </div>
+  </div>
+</div>
+
+<!-- File Upload area -->  
+<div class="form-group">
+    <label for="file">Upload your file</label>
+    <input type="file" name="file" class="form-control" />
+</div>
+ 
+
+
+<!-- Button -->
+<div class="form-group">
+  <label class="col-md-4 control-label"></label>
+  <div class="col-md-4">
+    <button type="submit" class="btn btn-primary btn-lg" >Submit <span class="glyphicon glyphicon-send"></span></button>
+  </div>
+</div>
+
+</fieldset>
+</form>
+
+{% endblock %}
